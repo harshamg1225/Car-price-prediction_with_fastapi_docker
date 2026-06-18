@@ -35,5 +35,16 @@ services:
     networks:
       - backend
 
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana1
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - backend
+
 networks:
   backend:
+    driver: bridge
